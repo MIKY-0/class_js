@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1. -->
+    <!-- <button id="calculate-button">주문 계산</button> -->
+
+    <!-- 2. -->
+    <!-- <button id="calculate-button">총 금액 계산</button> -->
+
+    <!-- 3. -->
+
+    <script>
+      // 1. --------------------------------------
+      // const orderItems = [
+      //   { name: "키보드", price: 15000, quantity: 2 },
+      //   { name: "마우스", price: 8000, quantity: 3 },
+      //   { name: "헤드셋", price: 12000, quantity: 1 },
+      // ];
+
+      // function calcuateOrder(orderList, discountCallback) {
+      //   let subtotal = 0;
+
+      //   for (const o of orderList) {
+      //     subtotal += o.price * o.quantity;
+      //   }
+
+      //   const discount = discountCallback(subtotal);
+
+      //   const finalTotal = subtotal - discount;
+
+      //   return {
+      //     subtotal: subtotal,
+      //     discount: discount,
+      //     finalTotal: finalTotal,
+      //   };
+      // }
+
+      // const cal = document.getElementById("calculate-button");
+      // cal.addEventListener("click", function () {
+      //   const result = calcuateOrder(orderItems, (s) => {
+      //     if (s >= 50000) return s * 0.1;
+      //     return 0;
+      //   });
+      //   console.log(result.subtotal);
+      //   console.log(result.discount);
+      //   console.log(result.subtotal);
+      // });
+
+      // 2. --------------------------------------
+      // const productList = [
+      //   { productName: "공책", price: 3000, quantity: 3 },
+      //   { productName: "볼펜", price: 1000, quantity: 5 },
+      //   { productName: "지우개", price: 500, quantity: 2 },
+      // ];
+
+      // function calculatePrice(products) {
+      //   let totalPrice = 0;
+
+      //   for (const p of products) {
+      //     totalPrice += p.price * p.quantity;
+      //   }
+      //   return totalPrice;
+      // }
+
+      // const calculateButton = document.getElementById("calculate-button");
+      // calculateButton.addEventListener("click", function () {
+      //   const result = calculatePrice(productList);
+      //   console.log("총 상품금액 : " + result);
+      // });
+
+      // 3.------------------------------------------------
+      // const productList = [
+      //   { productName: "공책", price: 3000, quantity: 3 },
+      //   { productName: "볼펜", price: 1000, quantity: 5 },
+      //   { productName: "지우개", price: 500, quantity: 2 },
+      //   { productName: "필통", price: 12000, quantity: 1 },
+      // ];
+
+      // function checkProducts(products, callback) {
+      //   for (const p of products) {
+      //     callback(p);
+      //   }
+      // }
+
+      // const a = (p) => {
+      //   if (p.price * p.quantity >= 5000)
+      //     console.log(p.productName + " : " + p.price * p.quantity);
+      // };
+      // checkProducts(productList, a);
+
+      // 4.------------------------------------------------
+      // const numberList = [3, 8, 12, 5, 20, 7];
+
+      // function checkNumbers(numbers, callback) {
+      //   for (const n of numbers) callback(n);
+      // }
+
+      // const a = (x) => {
+      //   if (x >= 10) console.log(x);
+      // };
+
+      // checkNumbers(numberList, a);
+
+      // 5.------------------------------------------------
+      const studentList = [
+        { name: "민수", score: 72 },
+        { name: "지수", score: 91 },
+        { name: "철수", score: 58 },
+        { name: "영희", score: 85 },
+      ];
+
+      function checkStudents(students, callback) {
+        for (const s of students) {
+          const isPass = callback(s.score);
+          if (isPass) console.log(s.name + " : " + s.score);
+        }
+      }
+
+      const a = (score) => {
+        return score >= 80;
+      };
+
+      checkStudents(studentList, a);
+    </script>
+  </body>
+</html>
