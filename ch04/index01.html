@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch04 - index01.html</h1>
+
+    <script>
+      // 1. 객체가 없다면 : 학생 한명에게 변수 여러개가 필요.
+      let student1Name = "홍길동";
+      let student1Age = 20;
+      let student1Major = "컴공";
+
+      // 2. 객체 리터럴 : 중괄호 안에 {"키" : "값"} 쌍을 쉼표로 나열하는 방법.
+      // 즉, 관련있는 값 3개가 하나로 묶인다.
+      const student1 = {
+        name: "홍길동",
+        age: 20,
+        major: "컴공",
+      };
+
+      console.log("-------점 표기법-------");
+      // 3. 속성 접근방법1 : 점 표기법. 가장 많이 쓰는 방식.
+      console.log(student1.name);
+      console.log(student1.age);
+      console.log(student1.major);
+
+      console.log("-------대괄호 표기법-------");
+      // 4. 속성 접근방법2 : 대괄호 표기법. 키를 문자열로 적음.
+      console.log(student1["name"]);
+      console.log(student1["age"]);
+      console.log(student1["major"]);
+
+      // 키 값은 변수를 통해서 활용 가능.
+      const keyName = "name";
+      console.log(student1[keyName]); // 변수에 담긴 키로 접근 가능.
+      console.log(student1);
+
+      // 5. 두번째 학생의 정보도 저장하려면 또 하나의 객체 리터럴 만들어야함.
+      const student2 = {
+        name: "이순신",
+        age: 21,
+        major: "경영",
+      };
+      console.log(student2);
+      console.log(student2.name);
+      console.log(student2.age);
+      console.log(student2.major);
+
+      // 6. 없는 키를 읽어보자.
+      console.log("없는키 실행 : " + student2.tel);
+
+      // 7. 객체 리터럴 생성 후 없는 속성 만들어보자.
+      student2.tel = "010-1234-1234";
+      console.log(student2);
+    </script>
+  </body>
+</html>

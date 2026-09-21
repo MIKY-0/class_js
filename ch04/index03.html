@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch04 - index03.html</h1>
+
+    <script>
+      console.log("1. 배열 만들기와 인덱스");
+      const fruits = ["사과", "바나나", "포도"];
+
+      console.log(fruits);
+      console.log(fruits[0]);
+      console.log(fruits[1]);
+      console.log(fruits[2]);
+      console.log(fruits[3]); // 없는 인덱스 번호 - undefined
+      console.log(fruits.length);
+
+      // 항상 마지막 인덱스 값을 출력할 때 많이 사용.
+      console.log(fruits[fruits.length - 1]);
+
+      // JS 배열에서 값 추가와 제거.
+      console.log(fruits);
+      fruits.push("딸기"); // push : 요소의 맨 뒤에 추가.
+      console.log(fruits);
+
+      fruits.pop(); // 맨 뒤 요소 제거.
+      console.log(fruits);
+
+      // 수정.
+      fruits[1] = "블루베리";
+      console.log(fruits);
+
+      // 반복문으로 활용하기.
+      // 방법 1. 인덱스 활용.
+      for (let i = 0; i < fruits.length; i++) {
+        console.log(i + "번째 과일 : " + fruits[i]);
+      }
+
+      // 방법 2. 향상for문 (값만 필요할 때 사용.)
+      for (const f of fruits) {
+        console.log(f);
+      }
+
+      // 객체와 배열 : 서버 데이터의 기본형태.
+      const studentList = [
+        { name: "홍길동", age: 20, major: "컴공" },
+        { name: "이순신", age: 21, major: "경영" },
+      ];
+
+      // 반복문 돌면서 해당 객체의 이름과 나이 출력(전체)
+      for (const s of studentList) {
+        if (s.age >= 21) {
+          // 21살 이상.
+          console.log(s.name);
+          console.log(s.age);
+        }
+      }
+    </script>
+  </body>
+</html>
