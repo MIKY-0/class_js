@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch06 - index01.html</h1>
+
+    <script>
+      console.log("-----------------1. 메서드로 호출하면 this는 점 앞에 객체이다.-----------------");
+      const cat = {
+        name: "나비",
+        name2: "나비2",
+        introduce: function () {
+          console.log("제 이름은 " + this.name2 + "입니다");
+        },
+      };
+      cat.introduce(); // '.' 앞에있는 cat이 this가 됨.
+      // introduce 내부에 this가 있는데 이 introduce를 cat이 호출하고있음. 그럼 this의 주체는 cat이 됨.
+
+      console.log("-----------------2. 같은 함수를 다른 객체에 붙이면 this도 바뀜.-----------------");
+      const dog = {
+        name: "초코",
+        introduce: cat.introduce,
+      };
+
+      // '.' 앞에 있는 dog가 this.
+      dog.introduce();
+
+      console.log("-----------------3. 그냥 호출하면 this는 window 객체.-----------------");
+
+      const alone = cat.introduce; // 함수 호출이 아닌 변수에 할당.
+
+      // 주의) window.name 속성이 특수한 변수라서 미리 선점되어있음.
+      // name2속성은 window에게 없어서 undefined. '나비2'는 단지 cat내부에서만 만들어준것.
+
+      alone(); // 실제 함수의 동작은 cat의 this.name이라서 <----- this가 window를 가리킴. alone이 가리키는건 window이므로.
+      // --> alone 앞에 '.'이 없으므로.
+
+      console.log("-----------------4. new로 호출하면 this는 새로 만들어지는 객체를 가리킴.-----------------");
+
+      function Member(name) {
+        this.name = name;
+      }
+
+      const member1 = new Member("홍길동");
+      console.log(member1.name);
+
+      // 만약 new 키워드를 사용안하고 호출하면?
+      const member2 = Member("이순신");
+      console.log(member2);
+      console.log(typeof member2);
+      console.log(window.name);
+      // new를 빠뜨리면 '.'이 없는 호출이 됨. 즉, this는 window가 되어 실제 가지고있는 멤버변수 name에 방금 넣은
+      // 인수값 '이순신'이 담긴다.
+
+      // 새로고침을 해도 값이 남는 특수한 속성이 있기 때문에 빈문자열로 덮어씌움. --> 그렇지 않으면 다른 코드에
+      // 영향을 줄 수 있음.
+      window.name = "";
+    </script>
+  </body>
+</html>

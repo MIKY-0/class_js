@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch07 - index03.html</h1>
+
+    <script>
+      console.log("단락 평가");
+      // 1. 논리합은 왼쪽부터 측정하다가 Truthy를 만나면 즉시 멈추고 그 뒤는 안봄.
+      console.log("hello" || "world");
+      console.log("" || "기본값");
+      console.log(null || 0 || "끝");
+      console.log(null || undefined); // 논리합에서 끝까지 falsy라면 마지막값 출력.
+      console.log(undefined || null); // 논리합에서 끝까지 falsy라면 마지막값 출력.
+
+      // 2.활용 : 값이 없으면 기본값을 써라를 한줄로 코드로 작성 가능.
+      let nickName = "";
+      let displayName = nickName || "익명";
+      console.log(displayName);
+
+      // 3. 논리곱은 왼쪽부터 측정하다가 Falsy를 만나면 즉시 멈추고 그 뒤는 안봄.
+      console.log("hello" && "world");
+      console.log("" && "기본값");
+      console.log(null && 0 && "끝");
+      console.log(null && undefined);
+    </script>
+  </body>
+</html>

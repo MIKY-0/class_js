@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+    <h1>ch08 - index04.html</h1>
+    <div id="product-list"></div>
+
+    <script>
+      console.log("--------1. id로 하나 찾기--------");
+      const products = [
+        { id: 1, name: "무선마우스", price: 25000, stock: 3 },
+        { id: 2, name: "기계식키보드", price: 89000, stock: 0 },
+        { id: 3, name: "모니터받침대", price: 15000, stock: 12 },
+      ];
+      const found = products.find((p) => p.id === 2); // products배열의 id가 2번인 걸 찾음.
+      console.log(found);
+      console.log(found.name);
+
+      console.log("--------2. 찾는 요소가 없으면 undefined 반환--------");
+      const found2 = products.find((p) => p.id === 20);
+      console.log(found2); // undefined
+
+      const selectedName = found2?.name ?? "해당 상품이 없음.";
+      document.getElementById("product-list").textContent = selectedName;
+    </script>
+  </body>
+</html>

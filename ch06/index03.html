@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch06 - index03.html</h1>
+
+    <script>
+      console.log("1. 콜백을 화살표 함수로 바꾸면 this 버그 해결 가능.");
+      const timer = {
+        seconds: 3,
+        label: "요리 타이머",
+        start: function () {
+          console.log(this.label + "시작 " + this.seconds + "초"); // 여기 this --> timer
+          setTimeout(() => {
+            console.log(this.label + " :  요리 끝"); // 여기 this --> timer가리킴. (화살표 함수 특징)
+            // 화살표함수는 자신this가 없어서 바깥의 this를 가리킴.
+          }, 3000);
+        },
+      };
+
+      timer.start();
+
+      console.log("2. forEach도 마찬가지로 해결.");
+      const shop = {
+        name: "코딩상점",
+        products: ["마우스", "키보드", "모니터"],
+        printAll: function () {
+          this.products.forEach((p) => {
+            // 여기 this --> shop가리킴.
+            console.log(this.name + " - " + p); // 여기 this --> 바깥this(shop)를 가리킴.
+          });
+        },
+      };
+
+      shop.printAll();
+
+      console.log("3. 주의 : 메서드 자체를 화살표 함수로 만들지 말자.");
+      const wrongShop = {
+        name: "잘못된 상점", // name하면 빈문자열 , name2로 하면 undefined
+        introduce: () => {
+          // 화살표 함수는 this가 없어서 이 자리의 바깥은 객체가 아니라 전역이므로 window객체를 가리킴.
+          console.log("이름 : " + this.name);
+        },
+      };
+      wrongShop.introduce();
+
+      console.log("4. 축약 메서드 문법 : 메서드는 이렇게 사용하자.");
+      const rightShop = {
+        name: "올바른 상점",
+        products: ["마우스", "키보드"],
+        // introduce : function() {} // 아래가 축약형
+        introduce() {
+          console.log("이름 : " + this.name);
+        },
+      };
+      rightShop.introduce();
+
+      // 객체안의 메서드는 축약 문법 , 콜백 메서드는 화살표 함수로 사용하는것이 this버그를 해결할 수 있음.
+    </script>
+  </body>
+</html>
