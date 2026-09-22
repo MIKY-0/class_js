@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- -------------- 1 -------------- -->
+    <!-- <script>
+      const productList = [
+        { name: "키보드", price: 50000, stock: 3 },
+        { name: "마우스", price: 30000, stock: 0 },
+        { name: "모니터", price: 200000, stock: 2 },
+        { name: "USB", price: 15000, stock: 5 },
+      ];
+
+      const shop = {
+        name: "테크샵",
+        products: productList,
+        getAvailableProducts() {
+          return this.products.filter((p) => p.stock >= 1);
+        },
+        getProductName() {
+          return this.getAvailableProducts().map((p) => p.name);
+        },
+
+        getExpensiveProducts() {
+          return this.products.filter((p) => p.price >= 40000);
+        },
+      };
+
+      console.log(shop.getAvailableProducts());
+      console.log(shop.getProductName());
+      console.log(shop.getExpensiveProducts());
+    </script> -->
+
+    <!-- -------------- 2 -------------- -->
+    <!-- <script>
+      const orderList = [
+        { name: "키보드", price: 50000, quantity: 2 },
+        { name: "마우스", price: 30000, quantity: 1 },
+        { name: "모니터", price: 200000, quantity: 1 },
+        { name: "USB", price: 15000, quantity: 3 },
+      ];
+
+      const store = {
+        name: "테크스토어",
+        orders: orderList,
+        getLargeOrders() {
+          return this.orders.filter((p) => p.price * p.quantity >= 50000);
+        },
+        getOrderSummaries() {
+          return this.getLargeOrders().map(
+            (p) => `${p.name} : ${p.price * p.quantity}원 `,
+          );
+        },
+        getTotalPrice() {
+          return this.orders.reduce((total, p) => {
+            return total + p.price * p.quantity;
+          }, 0);
+        },
+      };
+
+      console.log(store.getLargeOrders());
+      console.log(store.getOrderSummaries());
+      console.log(store.getTotalPrice());
+    </script> -->
+
+    <!-- -------------- 3 -------------- -->
+    <!-- <script>
+      const orderList = [
+        { name: "키보드", price: 50000, quantity: 2 },
+        { name: "마우스", price: 30000, quantity: 1 },
+        { name: "모니터", price: 200000, quantity: 1 },
+        { name: "USB", price: 15000, quantity: 3 },
+      ];
+
+      const store = {
+        orders: orderList,
+        getOrders() {
+          return this.orders.filter((p) => p.price * p.quantity >= 50000);
+        },
+        getOrderList() {
+          return this.getOrders().map(
+            (p) => `${p.name} : ${p.price * p.quantity}원 `,
+          );
+        },
+        getTotal() {
+          return this.getOrders().reduce((t, p) => {
+            return t + p.price * p.quantity;
+          }, 0);
+        },
+      };
+
+      console.log(store.getTotal());
+      console.log(store.getOrderList());
+    </script> -->
+
+    <!-- -------------- 4 -------------- -->
+    <!-- <script>
+      const purchaseList = [
+        { productName: "키보드", price: 50000 },
+        { productName: "마우스", price: 30000 },
+        { productName: "모니터", price: 200000 },
+        { productName: "USB", price: 15000 },
+      ];
+      const member = {
+        name: "민수",
+        points: 0,
+        purchases: purchaseList,
+        getPurchase(callback) {
+          for (const p of this.purchases) {
+            const point = callback(p);
+            this.points += point;
+          }
+        },
+        getPoint(product) {
+          if (product.price >= 100000) return product.price * 0.1;
+          else return product.price * 0.05;
+        },
+      };
+
+      member.getPurchase(member.getPoint);
+      console.log(member.points);
+    </script> -->
+
+    <!-- -------------- 5 -------------- -->
+    <!-- <script>
+      const userList = [
+        { name: "민수", score: 120 },
+        { name: "지수", score: 80 },
+        { name: "철수", score: 150 },
+        { name: "영희", score: 60 },
+      ];
+
+      const group = {
+        name: "A그룹",
+        bonus: 0,
+        users: userList,
+        getMember(callback) {
+          for (const u of this.users) {
+            const a = callback(u);
+            this.bonus += a;
+          }
+        },
+        getBonus(user) {
+          if (user.score >= 100) return user.score * 0.2;
+          else return user.score * 0.1;
+        },
+      };
+
+      group.getMember(group.getBonus);
+      console.log(group.bonus);
+    </script> -->
+
+    <!-- -------------- 6 -------------- -->
+    <!-- <script>
+      const orderList = [
+        { orderId: 1, customer: "민수", amount: 45000 },
+        { orderId: 2, customer: "지수", amount: 120000 },
+        { orderId: 3, customer: "철수", amount: 70000 },
+        { orderId: 4, customer: "영희", amount: 200000 },
+      ];
+
+      const delivery = {
+        orders: orderList,
+        results: [],
+        getResult(callback) {
+          for (const o of this.orders) {
+            const a = callback(o);
+            // this.results.push(`${o.customer} : ${a}`);
+            // this.results.push(o.customer + " : " + a);
+            this.results.push({
+              customer: o.customer,
+              delivery: a,
+            });
+          }
+        },
+        getOrder(order) {
+          if (order.amount >= 100000) return "무료배송";
+          else return "일반배송";
+        },
+      };
+
+      delivery.getResult(delivery.getOrder);
+      console.log(delivery.results);
+    </script> -->
+
+    <!-- -------------- 7 -------------- -->
+    <!-- <script>
+      const cartList = [
+        { name: "키보드", price: 50000 },
+        { name: "마우스", price: 30000 },
+        { name: "모니터", price: 200000 },
+        { name: "USB", price: 15000 },
+      ];
+
+      const cart = {
+        carts: cartList,
+        results: [],
+        getResult(callback) {
+          for (const c of this.carts) {
+            const dc = callback(c);
+            this.results.push({
+              name: c.name,
+              finalPrice: c.price - dc,
+            });
+          }
+        },
+        getDiscount(items) {
+          if (items.price >= 100000) return items.price * 0.2;
+          else return 0;
+        },
+      };
+
+      cart.getResult(cart.getDiscount);
+      console.log(cart.results);
+    </script> -->
+
+    <!-- -------------- 8 -------------- -->
+    <!-- <script>
+      const userList = [
+        { id: "user1", password: "1111" },
+        { id: "user2", password: "2222" },
+        { id: "user3", password: "3333" },
+      ];
+
+      const loginSystem = {
+        users: userList,
+        currentUser: null,
+        isLogin: false,
+        userInfo(user, callback) {
+          let user1 = null;
+          for (const u of this.users) {
+            if (u.id === user.id && u.password === user.password) {
+              this.currentUser = u.id;
+              this.isLogin = true;
+              user1 = u;
+              break;
+            }
+          }
+
+          if (user1) {
+            callback(user1);
+          } else {
+            this.currentUser = null;
+            this.isLogin = false;
+          }
+        },
+      };
+      const loginUser = (u) => {
+        console.log(u.id + "님 로그인 성공");
+      };
+      const testUser = { id: "user2", password: "2222" };
+      loginSystem.userInfo(testUser, loginUser);
+
+      console.log(loginSystem.currentUser);
+      console.log(loginSystem.isLogin);
+    </script> -->
+
+    <!-- -------------- 9 -------------- -->
+    <script>
+      const productList = [
+        { id: 1, name: "키보드", price: 50000 },
+        { id: 2, name: "마우스", price: 30000 },
+        { id: 3, name: "모니터", price: 200000 },
+        { id: 4, name: "USB", price: 15000 },
+      ];
+
+      const couponInfo = { type: "percent", value: 10 };
+
+      const shop = {
+        products: productList,
+        lastName: null,
+        lastPrice: 0,
+        isPurchase: false,
+        aa(id, info, callback) {
+          let product = null;
+          for (const p of this.products) {
+            if (p.id === id) {
+              product = p;
+              // callback(p, couponInfo);
+              this.lastName = p.name;
+              this.lastPrice = callback(p, couponInfo);
+              this.isPurchase = true;
+            }
+          }
+
+          if (product === null) {
+            this.lastName = null;
+            this.lastPrice = 0;
+            this.isPurchase = false;
+          }
+        },
+      };
+
+      const bb = (p, c) => {
+        if (c.type === "percent") return p.price - (p.price * c.value) / 100;
+        else if (c.type === "fixed") return p.price - c.value;
+      };
+
+      shop.aa(1, couponInfo, bb);
+      console.log(shop.lastName);
+      console.log(shop.lastPrice);
+      console.log(shop.isPurchase);
+    </script>
+  </body>
+</html>
