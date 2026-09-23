@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch09 index02.html</h1>
+    <div id="notice">아이디로 접근</div>
+    <div class="item">클래스 1</div>
+    <div class="item">클래스 2</div>
+
+    <p>태그 이름 1</p>
+    <p>태그 이름 2</p>
+
+    <script>
+      // 중요 - 요소에 접근하는 5가지 방법.
+      console.log("1. id로 찾기 : 요소 하나");
+      const notice = document.getElementById("notice");
+      console.log(notice);
+      console.log("notice(id) 타입 : " + typeof notice);
+
+      console.log("-----2. class로 찾기 : 여러 개(HTMLCollection)-----");
+      const itemsByClass = document.getElementsByClassName("item");
+      console.log(itemsByClass);
+      console.log("item(class) 타입 : " + typeof itemsByClass);
+
+      console.log("-----3. 태그 이름으로 찾기 : 여러 개(HTMLCollection)-----");
+      const pElements = document.getElementsByTagName("p");
+      console.log(pElements);
+      console.log("p(tag) 타입 : " + typeof pElements);
+
+      console.log("-----4. CSS선택자로 : 첫번째 하나 찾기-----");
+      // 현재 웹 문서에서는 .item 클래스 속성을 가진 요소가 2개.
+      // 하지만 첫번째 하나만 찾아줌.
+      const firstItem = document.querySelector(".item");
+      console.log(firstItem);
+      console.log(".item(CSS선택자) 타입 : " + typeof firstItem);
+
+      // 4 - 1
+      const noticeEl = document.querySelector("#notice");
+      console.log(noticeEl);
+
+      console.log("-----5. CSS선택자로 : 전부 찾기(여러개) - NodeList-----");
+      const allItems = document.querySelectorAll(".item");
+      console.log(allItems);
+      console.log(allItems.length);
+
+      console.log("-----6. 실험해보기 : 만약 없는 id로 getElementById로 읽으면?-----");
+      const noId = document.getElementById("nonono");
+      // const noId2 = (document.getElementById("nonono").textContent = "123123");
+      console.log(noId); // null , textContent = "123123"를 붙이면 type error
+
+      console.log("-----7.위 결과를 보고 방어적 코드를 작성해서 에러 안나게-----");
+      console.log(noId ?? "id 없음");
+    </script>
+  </body>
+</html>
