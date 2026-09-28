@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+      /* 숨김 처리용 클래스를 미리 만들어 둔다 */
+      .hide-display {
+        display: none;
+      }
+
+      .hide-visibility {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>ch12 index04.html - 요소 숨기기 / 보이기</h1>
+    <button id="btn1">Display 토글(공간까지사라짐)</button>
+    <button id="btn2">visibility 토글(공간은 남음)</button>
+
+    <div class="box" id="box2">내부 박스2(visibility 테스트)</div>
+    <div class="box" id="box1">내부 박스1(Display 테스트)</div>
+
+    <script>
+      // 1. 요소부터 객체로 가져오기.
+      const btn1 = document.getElementById("btn1");
+      const btn2 = document.getElementById("btn2");
+      const box1 = document.getElementById("box1");
+      const box2 = document.getElementById("box2");
+
+      // 2. 이벤트 리스너 등록하기.
+      // 버튼1 누르면 박스1을 "hide-display"클래스로 변경 --> display:none(공간자체가 사라짐)
+      btn1.addEventListener("click", () => {
+        box1.classList.toggle("hide-display");
+      });
+
+      // 버튼2 누르면 박스2 "hide-visibility"클래스로 변경 --> visibility:hidden(공간은 남고 내용만 사라짐)
+      btn2.addEventListener("click", () => {
+        box2.classList.toggle("hide-visibility");
+      });
+    </script>
+  </body>
+</html>

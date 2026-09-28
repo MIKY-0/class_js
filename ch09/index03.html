@@ -29,12 +29,25 @@
       // 아래 코드가 실제 dom에 추가하는 코드.
       document.getElementById("fruit-list").append(newFruit); // 실제 Html 문서에 포도가 등록됨.
 
+      // 2 - 1. getElementByIdrk 가 아닌 다른 요소로 추가.
+      // getElementsByClassName --> 이 요소는 여러값을 반환하므로 인덱스 번호 지정해줘야함.
+      // querySelector(".클래스명")
+      const newFruit2 = document.createElement("li");
+      console.log(newFruit2);
+      newFruit2.className = "fruit";
+      newFruit2.textContent = "뭘까?";
+      // document.getElementsByClassName("fruit")[0].append(newFruit2);
+      document.querySelector(".fruit").append(newFruit2);
+
       // 3. 추가한 뒤 두 결과의 개수를 다시 확인해보기.
       console.log("liveList.length : " + liveList.length); // HTMLCollection이므로 추가됨.
       console.log("staticList.length : " + staticList.length); // NodeList이므로 반영안됨.
 
       // 4. 물론 동적으로 요소를 추가한 뒤 다시 길이를 확인하면 반영됨. 현재 결과를 다시 스냅샷으로 찍음.
-      console.log("요소 추가한뒤 스냅샷 다시찍음 : " + document.querySelectorAll(".fruit").length);
+      console.log(
+        "요소 추가한뒤 스냅샷 다시찍음 : " +
+          document.querySelectorAll(".fruit").length,
+      );
     </script>
   </body>
 </html>

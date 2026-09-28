@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch12 index01.html</h1>
+    <button id="myButton">클릭</button>
+
+    <script>
+      // 1. 먼저 버튼 요소에 접근.
+      const buttonE1 = document.getElementById("myButton");
+
+      // 2. onClick 속성에 함수를 대입해서 핸들러 등록.
+      buttonE1.onclick = function () {
+        alert("첫번째 핸들러");
+      };
+
+      // 3. 주의 : 같은 속성에 다시 대입하면 앞의 핸들러는 사라짐.
+      buttonE1.onclick = function () {
+        alert("두번째 핸들러");
+      };
+    </script>
+  </body>
+</html>

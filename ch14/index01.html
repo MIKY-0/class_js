@@ -34,12 +34,18 @@
 
     <form action="https://naver.com" method="get">
       <input type="text" name="userName" value="홍길동" placeholder="이름" />
-      <input type="text" name="userTel" value="010-1234-1234" placeholder="연락처(010-1234-1234)" />
+      <input
+        type="text"
+        name="userTel"
+        value="010-1234-1234"
+        placeholder="연락처(010-1234-1234)"
+      />
       <span class="help" id="telHelp"></span>
       <button type="submit">제출</button>
     </form>
 
     <script>
+      // form의 0번째 요소(input)
       const formEl = document.forms[0];
 
       // formEl.elements["name속성값"] 으로 입력란을 찾을 수 있음.

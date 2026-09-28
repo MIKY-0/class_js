@@ -43,15 +43,17 @@
     </ul>
 
     <script>
-      // 페이지가 로드된 시점에는 존재하는 버튼이 현개 3개 (NodeList)
+      // 페이지가 로드된 시점에는 존재하는 버튼이 현재 3개 (NodeList)
       const deleteBtnList = document.querySelectorAll(".delete-btn");
       const btnAddEl = document.querySelector("#btnAdd");
       const itemListEl = document.querySelector("#itemList");
 
       // 문제의 원인 (동적 요소 생성시)
+      // deleteEl은 현재 3개. forEach를 써서 deleteEl을 하나씩 꺼내서 btn에다 담는다.
       deleteBtnList.forEach((btn) => {
         btn.addEventListener("click", () => {
-          // 버튼에 바로 부모인 요소에 접근해서 li를 지운다
+          // 버튼에 바로 부모인 요소에 접근해서 li를 지운다.
+          // btn은 오직 삭제버튼이고 이를 포함한 요소를 지우려면 parent를 지워야함.
           btn.parentElement.remove();
         });
       });

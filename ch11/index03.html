@@ -8,8 +8,16 @@
 
   <body>
     <script>
+      // 1. DOMContentLoaded : HTML파싱이 끝나 DOM이 완성되면 발생.
       document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("title").textContent = "DOM 완성 후 동작";
+        // 이미지는 아직 완성 안될수도 있음.(통신)
+      });
+
+      // 2. load : 이미지 , css등 모든 자원을 내려받은뒤 발생.
+      // DOMContentLoaded보다 늦음.
+      document.addEventListener("load", () => {
+        document.getElementById("title").textContent = "DOM완성 후 동작";
       });
     </script>
 

@@ -16,10 +16,11 @@
       console.log(document.body); // 바디요소만 출력
 
       // 2. 트리는 부모와 자식관계로 이어져있음.
-      console.log(document.body.children);
-      console.log(document.body.children[0]); // 0번쨰 요소 - h1
+      console.log(document.body.children); // 바디안에 있는 태그들.(h1 , p , p , script)
+      console.log(document.body.children[0]); // 바디의 0번째 요소 - h1
 
       // 3. JS로 Dom을 바꾸면 화면이 바로 바뀜.
+      // 바디의 2번째 요소의 내용을 바꿈.
       document.body.children[1].textContent = "자바스크립트가 바꾼 문단"; // 1번째 요소 - p첫번째 문단이 바뀜.
     </script>
   </body>

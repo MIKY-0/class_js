@@ -15,16 +15,16 @@
       console.log(window.document === document); // 같음. true
 
       // var로 선언한 변수와 함수 선언문은 window속성이 됨.
-      var oldVariable = "var로 만든 변수";
-      function oldFunction() {}
-      console.log(window.oldVariable);
-      console.log(window.oldFunction);
+      var oldVariable = "var로 만든 변수"; // var속성 변수.
+      function oldFunction() {} // 일반 함수.
+      console.log("var타입 변수 : " + window.oldVariable);
+      console.log("일반 함수 : " + window.oldFunction);
 
       // let과 const로 선언한 변수는 window속성이 되지 않는다.
       // 전역에서 선언할 수 있지만 window에 매달리지 않음.
       let newVariable = "let으로 만든 변수";
       console.log(newVariable);
-      console.log(window.newVariable);
+      console.log("let,const타입 변수 : " + window.newVariable);
     </script>
   </body>
 </html>

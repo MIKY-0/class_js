@@ -40,16 +40,18 @@
       }
 
       console.log("방법 2 : addEventListener로 처리");
-      document.getElementById("toggle-btn").addEventListener("click", function () {
-        const photoE1 = document.getElementById("photo1");
+      document
+        .getElementById("toggle-btn")
+        .addEventListener("click", function () {
+          const photoE1 = document.getElementById("photo1");
 
-        if (isFirst) {
-          photoE1.src = "img2.png";
-        } else {
-          photoE1.src = "img1.png";
-        }
-        isFirst = !isFirst;
-      });
+          if (isFirst) {
+            photoE1.src = "img2.png";
+          } else {
+            photoE1.src = "img1.png";
+          }
+          isFirst = !isFirst;
+        });
     </script>
   </body>
 </html>

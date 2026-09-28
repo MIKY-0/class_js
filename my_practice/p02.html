@@ -261,7 +261,7 @@
     </script> -->
 
     <!-- -------------- 9 -------------- -->
-    <script>
+    <!-- <script>
       const productList = [
         { id: 1, name: "키보드", price: 50000 },
         { id: 2, name: "마우스", price: 30000 },
@@ -305,6 +305,176 @@
       console.log(shop.lastName);
       console.log(shop.lastPrice);
       console.log(shop.isPurchase);
+    </script> -->
+
+    <!-- -------------- 10 -------------- -->
+    <!-- <script>
+      const orderList = [
+        { id: 1, customer: "민수", totalPrice: 45000 },
+        { id: 2, customer: "지수", totalPrice: 120000 },
+        { id: 3, customer: "철수", totalPrice: 70000 },
+        { id: 4, customer: "영희", totalPrice: 200000 },
+      ];
+
+      const orderSystem = {
+        orders: orderList,
+        lastName: null,
+        lastApp: null,
+        isOk: false,
+        aa(id, callback) {
+          let order = null;
+          for (const o of this.orders) {
+            if (id === o.id) {
+              order = o;
+              break;
+            }
+          }
+          if (order) {
+            this.lastName = order.customer;
+            this.lastApp = callback(order);
+            this.isOk = true;
+          } else {
+            this.lastName = null;
+            this.lastApp = null;
+            this.isOk = false;
+          }
+        },
+      };
+      const bb = (order) => {
+        if (order.totalPrice >= 100000) return "승인";
+        else return "보류";
+      };
+
+      orderSystem.aa(2, bb);
+      console.log(orderSystem.lastName);
+      console.log(orderSystem.lastApp);
+      console.log(orderSystem.isOk);
+    </script> -->
+
+    <!-- -------------- 11 -------------- -->
+    <!-- <script>
+      const memberList = [
+        { id: 1, name: "민수", point: 80 },
+        { id: 2, name: "지수", point: 150 },
+        { id: 3, name: "철수", point: 40 },
+        { id: 4, name: "영희", point: 220 },
+      ];
+
+      const memberSystem = {
+        members: memberList,
+        lastName: null,
+        lastGrade: null,
+        isOk: false,
+        aa(id, callback) {
+          let member = null;
+
+          for (const m of this.members) {
+            if (m.id === id) {
+              member = m;
+              break;
+            }
+          }
+
+          if (member) {
+            this.lastName = member.name;
+            this.lastGrade = callback(member);
+            this.isOk = true;
+          } else {
+            this.lastName = null;
+            this.lastGrade = null;
+            this.isOk = false;
+          }
+        },
+      };
+
+      const bb = (m) => {
+        if (m.point >= 200) return "VIP";
+        else if (100 <= m.point && m.point < 200) return "GOLD";
+        else return "NORMAL";
+      };
+
+      memberSystem.aa(4, bb);
+      console.log(memberSystem.lastName);
+      console.log(memberSystem.lastGrade);
+      console.log(memberSystem.isOk);
+    </script> -->
+
+    <!-- -------------- 12 -------------- -->
+    <!-- <script>
+      const employeeList = [
+        { id: 1, name: "민수", sales: 120000 },
+        { id: 2, name: "지수", sales: 80000 },
+        { id: 3, name: "철수", sales: 200000 },
+        { id: 4, name: "영희", sales: 50000 },
+      ];
+
+      const company = {
+        employees: employeeList,
+        results: [],
+        totalBonus: 0,
+        aa(callback) {
+          let sum = 0;
+          for (const e of this.employees) {
+            let bonus = callback(e);
+            this.results.push({
+              name: e.name,
+              bonus: bonus,
+            });
+            sum += bonus;
+          }
+          this.totalBonus = sum;
+        },
+        bb(e) {
+          if (e.sales >= 150000) return e.sales * 0.2;
+          else if (100000 <= e.sales && e.sales < 150000) return e.sales * 0.1;
+          else return 0;
+        },
+      };
+
+      company.aa(company.bb);
+      console.log(company.results);
+      console.log(company.totalBonus); 
+    </script> -->
+
+    <!-- -------------- 13 -------------- -->
+    <script>
+      const orderList = [
+        { id: 1, customer: "민수", amount: 40000, member: false },
+        { id: 2, customer: "지수", amount: 90000, member: true },
+        { id: 3, customer: "철수", amount: 150000, member: true },
+        { id: 4, customer: "영희", amount: 60000, member: false },
+      ];
+
+      const paymentSystem = {
+        orders: orderList,
+        results: [],
+        totalPay: 0,
+        orderCount: 0,
+        getResult(callback) {
+          for (const o of this.orders) {
+            const a = callback(o);
+            if (a <= 50000) continue;
+
+            this.results.push({
+              customer: o.customer,
+              originalPrice: o.amount,
+              finalPrice: a,
+            });
+            this.totalPay += a;
+            this.orderCount++;
+          }
+        },
+        getOrder(o) {
+          if (o.member && o.amount >= 100000) return o.amount * 0.8;
+          else if (o.member && o.amount < 100000) return o.amount * 0.9;
+          else if (!o.member) return o.amount;
+        },
+      };
+
+      paymentSystem.getResult(paymentSystem.getOrder);
+      console.log(paymentSystem.results);
+      console.log(paymentSystem.totalPay);
+      console.log(paymentSystem.orderCount);
     </script>
   </body>
 </html>

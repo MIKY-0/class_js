@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table class="notice">
+      <thead></thead>
+    </table>
+
+    <script>
+      //(문제2) tbody안에 아래 데이터를 HTML객체로 변환하여 반복 주입.
+      const posts = [
+        { id: 1, title: "공지1", author: "관리자", createAt: "2025-01-01" },
+        { id: 2, title: "공지2", author: "관리자", createAt: "2025-01-02" },
+        { id: 3, title: "공지3", author: "관리자", createAt: "2025-01-03" },
+        { id: 4, title: "공지4", author: "관리자", createAt: "2025-01-04" },
+      ];
+
+      const post = document.createElement("tbody");
+
+      for (const postVal of posts) {
+        const myTr = document.createElement("tr");
+        const val = Object.values(postVal);
+
+        for (const p of val) {
+          const myTd = document.createElement("td");
+          myTd.innerText = p;
+          myTr.appendChild(myTd);
+        }
+      }
+    </script>
+  </body>
+</html>

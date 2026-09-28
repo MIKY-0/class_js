@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>ch09 index02.html</h1>
-    <div id="notice">아이디로 접근</div>
+    <div id="notice">아이디로 접근1</div>
     <div class="item">클래스 1</div>
     <div class="item">클래스 2</div>
 
@@ -31,7 +31,7 @@
       console.log(pElements);
       console.log("p(tag) 타입 : " + typeof pElements);
 
-      console.log("-----4. CSS선택자로 : 첫번째 하나 찾기-----");
+      console.log("-----4. CSS선택자로 : 첫번째 하나 찾기(클래스로)-----");
       // 현재 웹 문서에서는 .item 클래스 속성을 가진 요소가 2개.
       // 하지만 첫번째 하나만 찾아줌.
       const firstItem = document.querySelector(".item");
@@ -39,6 +39,7 @@
       console.log(".item(CSS선택자) 타입 : " + typeof firstItem);
 
       // 4 - 1
+      console.log("-----------4 - 1(id로)-----------");
       const noticeEl = document.querySelector("#notice");
       console.log(noticeEl);
 
@@ -47,12 +48,16 @@
       console.log(allItems);
       console.log(allItems.length);
 
-      console.log("-----6. 실험해보기 : 만약 없는 id로 getElementById로 읽으면?-----");
+      console.log(
+        "-----6. 실험해보기 : 만약 없는 id로 getElementById로 읽으면?-----",
+      );
       const noId = document.getElementById("nonono");
       // const noId2 = (document.getElementById("nonono").textContent = "123123");
       console.log(noId); // null , textContent = "123123"를 붙이면 type error
 
-      console.log("-----7.위 결과를 보고 방어적 코드를 작성해서 에러 안나게-----");
+      console.log(
+        "-----7.위 결과를 보고 방어적 코드를 작성해서 에러 안나게-----",
+      );
       console.log(noId ?? "id 없음");
     </script>
   </body>
