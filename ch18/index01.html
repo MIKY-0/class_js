@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch18 index01.hmtl</h1>
+
+    <script>
+      // 샘플데이터
+      const todo = { userId: 1, id: 100, title: "오늘 복습", completed: false };
+
+      // 서버로 보낼때 : 객체 --> JSON 문자열로 변환. (JSON.stringify)
+      const jsonText = JSON.stringify(todo);
+      console.log(jsonText);
+      console.log("typeof jsonText : " + typeof jsonText);
+
+      // 서버에서 받을때 : JSON 문자열 -> 객체로 변환. (JSON.parse)
+      // 객체로 바꾼다면 생기는 이점 : 점연산자로 연산이 가능.
+      const parsedTodo = JSON.parse(jsonText);
+      console.log(parsedTodo);
+      console.log("typeof parsedTodo : " + typeof parsedTodo);
+      console.log("parsedTodo.id : " + parsedTodo.id);
+
+      // 오류 확인
+      try {
+        const badTodo = JSON.parse("asdasdasdasd : sadasdas");
+      } catch (e) {
+        console.log("잘못된 json형식");
+      }
+    </script>
+  </body>
+</html>

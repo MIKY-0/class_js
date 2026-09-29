@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ch17 index04.html 파일</h1>
+    <input type="text" value="소주" style="padding: 4px" id="orderInput" />
+    <button id="orderButton">주문 시작</button>
+    <p
+      id="noticeBoard"
+      style="padding: 50px; border: 1px solid #ccc; text-align: center"
+    >
+      주문을 기다리고 있습니다.
+    </p>
+
+    <script>
+      const orderButton = document.getElementById("orderButton");
+      const orderInput = document.getElementById("orderInput");
+      const noticeBoard = document.getElementById("noticeBoard");
+
+      function orderCoffe(order) {
+        return new Promise(function (rs, rj) {
+          setTimeout(function () {
+            if (order === "아메리카노" || order === "라떼") {
+              rs(order + "가 나옴");
+            } else {
+              rj(order + "는 안팝니다");
+            }
+          }, 2000);
+        });
+      }
+
+      orderButton.addEventListener("click", async () => {
+        try {
+          console.log(orderInput.value + "주문");
+          const msg = await orderCoffe(orderInput.value);
+          noticeBoard.textContent = msg;
+        } catch (e) {
+          noticeBoard.textContent = e;
+        }
+      });
+    </script>
+  </body>
+</html>
