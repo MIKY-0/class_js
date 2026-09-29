@@ -24,6 +24,8 @@ async function fetchTodo() {
     // 요청실패시 reject가 되므로 try-catch. 서버가 안켜져있는 문제와 같이.
     // 1) 요청을 보내고 응답이 도착할 때 까지 여기서 잠시 대기.
     // fetch함수에서 기본값은 GET 요청.
+    // fetch()의 결과를 바로 res에 넣는게 아니라 fetch()가 성공인지 실패인지 모르지만 어쨌든 완료되면
+    // 그때 res에 담는다.
     const res = await fetch(`${BASE_URL}/todos/1`); // 리턴타입 : Promise
 
     console.log("응답상태코드 : " + res.status); // 응답 상태코드
